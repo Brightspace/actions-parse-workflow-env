@@ -7,7 +7,6 @@ Github action that looks through the github environment variables and creates fl
 ## Simple Usage
 
 ```yml
-
 steps:
   - uses: Brightspace/actions-parse-workflow-env@v1
     id: workflow-env
@@ -15,13 +14,11 @@ steps:
   - name: Deploy
     if: ${{ steps.workflow-env.outputs.isRelease == 'true' }}
     run: do deploy
-
 ```
 
 ## Custom Release Tag
 
 ```yml
-
 steps:
   - uses: Brightspace/actions-parse-workflow-env@v1
     id: workflow-env
@@ -31,7 +28,6 @@ steps:
   - name: Deploy
     if: ${{ steps.workflow-env.outputs.isRelease == 'true' }}
     run: do deploy
-
 ```
 
 ## Main as default branch
@@ -39,7 +35,6 @@ steps:
 By default the main branch is 'master'. If you have migrated to 'main' as the main branch, or use an unconventional main branch, you will have to set the main-branch.
 
 ```yml
-
 steps:
   - uses: Brightspace/actions-parse-workflow-env@v1
     id: workflow-env
@@ -49,5 +44,28 @@ steps:
   - name: Deploy UAT
     if: ${{ steps.workflow-env.outputs.isMain == 'true' }}
     run: do deploy
+```
 
+## Use in multiple jobs
+
+```yml
+jobs:
+  Workflow-Env:
+    outputs:
+      isMain: ${{ steps.workflowEnv.outputs.isMain }}
+      isSchedule: ${{ steps.workflowEnv.outputs.isSchedule }}
+      isPush: ${{ steps.workflowEnv.outputs.isPush }}
+      isTagged: ${{ steps.workflowEnv.outputs.isTagged }}
+      isRelease: ${{ steps.workflowEnv.outputs.isRelease }}
+    steps:
+      - name: Setup Workflow Env
+        id: workflowEnv
+        uses: Brightspace/actions-parse-workflow-env@v1
+
+  Deploy:
+    needs: [Workflow-Env]
+    if: ${{ needs.Workflow-env.outputs.isMain == 'true' }}
+    steps:
+      - name: Do Deploy
+        run: do deploy     
 ```
