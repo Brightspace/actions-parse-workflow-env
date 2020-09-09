@@ -1,0 +1,36 @@
+name: 'Parse Workflow Environment'
+description: 'Creates outputs depending on various environment variable like $GIT_REF'
+inputs:
+  release-tag-prefix:
+    description: 'Prefix of the tags that mark a release'
+    required: true
+    default: 'release-v.'
+  main-branch:
+    description: 'Name of the main branch'
+    required: true
+    default: 'master'
+outputs:
+  isMain:
+    description: 'true if workflow is running against the main branch'
+    value: ${{ steps.parse-workflow-env.outputs.isMain }}
+  isSchedule:
+    description: 'true if workflow is triggered by a schedule'
+    value: ${{ steps.parse-workflow-env.outputs.isSchedule }}
+  isPush:
+    description: 'true if workflow is triggered by a push'
+    value: ${{ steps.parse-workflow-env.outputs.isPush }}
+  isTagged:
+    description: 'true if workflow is running against a tag'
+    value: ${{ steps.parse-workflow-env.outputs.isTagged }}
+  isRelease:
+    description: 'true if workflow is running against a release'
+    value: ${{ steps.parse-workflow-env.outputs.isRelease }}
+runs:
+  using: "composite"
+  steps: 
+    - id: parse-workflow-env
+      run: $GITHUB_ACTION_PATH/parse-workflow-env.sh
+      shell: bash
+      env:
+        RELEASE_TAG_PREFIX: ${{ inputs.release-tag-prefix }}
+        MAIN_BRANCH: ${{ inputs.main-branch }}
