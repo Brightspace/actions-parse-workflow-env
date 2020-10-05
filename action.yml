@@ -4,7 +4,7 @@ inputs:
   release-tag-prefix:
     description: 'Prefix of the tags that mark a release'
     required: true
-    default: 'release-v.'
+    default: 'v'
   main-branch:
     description: 'Name of the main branch'
     required: true
