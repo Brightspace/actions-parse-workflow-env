@@ -64,7 +64,7 @@ jobs:
 
   Deploy:
     needs: [Workflow-Env]
-    if: ${{ needs.Workflow-env.outputs.isMain == 'true' }}
+    if: ${{ needs.Workflow-Env.outputs.isMain == 'true' }}
     steps:
       - name: Do Deploy
         run: do deploy     
