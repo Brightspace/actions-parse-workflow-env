@@ -51,6 +51,7 @@ steps:
 ```yml
 jobs:
   Workflow-Env:
+    runs-on: ubuntu-latest
     outputs:
       isMain: ${{ steps.workflowEnv.outputs.isMain }}
       isSchedule: ${{ steps.workflowEnv.outputs.isSchedule }}
@@ -63,6 +64,7 @@ jobs:
         uses: Brightspace/actions-parse-workflow-env@v1
 
   Deploy:
+    runs-on: ubuntu-latest
     needs: [Workflow-Env]
     if: ${{ needs.Workflow-Env.outputs.isMain == 'true' }}
     steps:
