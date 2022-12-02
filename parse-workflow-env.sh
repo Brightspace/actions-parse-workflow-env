@@ -25,11 +25,11 @@ if [[ $GITHUB_EVENT_NAME == "schedule" ]]; then
 fi
 
 # Export variables
-echo "::set-output name=isMain::$IS_MAIN"
-echo "::set-output name=isSchedule::$IS_SCHEDULE"
-echo "::set-output name=isPush::$IS_PUSH"
-echo "::set-output name=isTagged::$IS_TAGGED"
-echo "::set-output name=isRelease::$IS_RELEASE"
+echo "isMain=$IS_MAIN" >> $GITHUB_OUTPUT
+echo "isSchedule=$IS_SCHEDULE" >> $GITHUB_OUTPUT
+echo "isPush=$IS_PUSH" >> $GITHUB_OUTPUT
+echo "isTagged=$IS_TAGGED" >> $GITHUB_OUTPUT
+echo "isRelease=$IS_RELEASE" >> $GITHUB_OUTPUT
 
 echo "Git Ref: '$GITHUB_REF'"
 echo "Event: '$GITHUB_EVENT_NAME'"
