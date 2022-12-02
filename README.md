@@ -8,7 +8,7 @@ Github action that looks through the github environment variables and creates fl
 
 ```yml
 steps:
-  - uses: Brightspace/actions-parse-workflow-env@v1
+  - uses: Brightspace/actions-parse-workflow-env@v3
     id: workflow-env
   
   - name: Deploy
@@ -20,7 +20,7 @@ steps:
 
 ```yml
 steps:
-  - uses: Brightspace/actions-parse-workflow-env@v1
+  - uses: Brightspace/actions-parse-workflow-env@v3
     id: workflow-env
     with:
       release-tag-prefix: 'rel.v.'
@@ -36,7 +36,7 @@ By default the main branch is 'master'. If you have migrated to 'main' as the ma
 
 ```yml
 steps:
-  - uses: Brightspace/actions-parse-workflow-env@v1
+  - uses: Brightspace/actions-parse-workflow-env@v3
     id: workflow-env
     with:
       main-branch: 'main'
@@ -61,7 +61,7 @@ jobs:
     steps:
       - name: Setup Workflow Env
         id: workflowEnv
-        uses: Brightspace/actions-parse-workflow-env@v1
+        uses: Brightspace/actions-parse-workflow-env@v3
 
   Deploy:
     runs-on: ubuntu-latest
