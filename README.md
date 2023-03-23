@@ -10,7 +10,7 @@ Github action that looks through the github environment variables and creates fl
 steps:
   - uses: Brightspace/actions-parse-workflow-env@v3
     id: workflow-env
-  
+
   - name: Deploy
     if: ${{ steps.workflow-env.outputs.isRelease == 'true' }}
     run: do deploy
@@ -24,7 +24,7 @@ steps:
     id: workflow-env
     with:
       release-tag-prefix: 'rel.v.'
-  
+
   - name: Deploy
     if: ${{ steps.workflow-env.outputs.isRelease == 'true' }}
     run: do deploy
@@ -58,6 +58,7 @@ jobs:
       isPush: ${{ steps.workflowEnv.outputs.isPush }}
       isTagged: ${{ steps.workflowEnv.outputs.isTagged }}
       isRelease: ${{ steps.workflowEnv.outputs.isRelease }}
+      isNewest: ${{ steps.workflowEnv.outputs.isNewest }}
     steps:
       - name: Setup Workflow Env
         id: workflowEnv
@@ -69,5 +70,5 @@ jobs:
     if: ${{ needs.Workflow-Env.outputs.isMain == 'true' }}
     steps:
       - name: Do Deploy
-        run: do deploy     
+        run: do deploy
 ```

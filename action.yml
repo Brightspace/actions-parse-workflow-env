@@ -25,9 +25,12 @@ outputs:
   isRelease:
     description: 'true if workflow is running against a release'
     value: ${{ steps.parse-workflow-env.outputs.isRelease }}
+  isNewest:
+    description: 'true if workflow is running against the newest release'
+    value: ${{ steps.parse-workflow-env.outputs.isNewest }}
 runs:
   using: "composite"
-  steps: 
+  steps:
     - id: parse-workflow-env
       run: $GITHUB_ACTION_PATH/parse-workflow-env.sh
       shell: bash
