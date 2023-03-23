@@ -5,8 +5,8 @@ IS_MAIN='false'
 IS_SCHEDULE='false'
 IS_PUSH='true'
 IS_TAGGED='false'
+IS_RELEASE='false'
 IS_NEWEST_RELEASE='false'
-IS_LATEST='false'
 
 if [[ $GITHUB_REF == *"/$MAIN_BRANCH" ]]; then
   IS_MAIN='true'
@@ -47,4 +47,4 @@ echo "Schedule: '$IS_SCHEDULE'"
 echo "Push: '$IS_PUSH'"
 echo "Tagged: '$IS_TAGGED'"
 echo "Release: '$IS_RELEASE'"
-echo "Newest Release: '$IS_NEWEST_RELEASE'"
+echo "Newest Release: '$IS_NEWEST_RELEASE
