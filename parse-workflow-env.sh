@@ -31,7 +31,6 @@ if [[ $current == $main ]]; then
   IS_NEWEST_RELEASE='true'
 fi
 
-
 # Export variables
 echo "isMain=$IS_MAIN" >> $GITHUB_OUTPUT
 echo "isSchedule=$IS_SCHEDULE" >> $GITHUB_OUTPUT
