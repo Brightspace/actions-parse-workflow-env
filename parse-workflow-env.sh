@@ -46,4 +46,4 @@ echo "Schedule: '$IS_SCHEDULE'"
 echo "Push: '$IS_PUSH'"
 echo "Tagged: '$IS_TAGGED'"
 echo "Release: '$IS_RELEASE'"
-echo "Newest Release: '$IS_NEWEST_RELEASE
+echo "Newest Release: '$IS_NEWEST_RELEASE'"
