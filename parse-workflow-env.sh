@@ -28,7 +28,7 @@ fi
 current=$((git show-ref --hash --verify HEAD))
 main=$((git show-ref --hash --verify refs/remotes/origin/$MAIN_BRANCH))
 if [[ $current == $main ]]; then
-  IS_NEWEST_RELEASE='true'
+  IS_LATEST='true'
 fi
 
 # Export variables
