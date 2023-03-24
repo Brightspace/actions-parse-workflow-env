@@ -26,7 +26,7 @@ outputs:
     description: 'true if workflow is running against a release'
     value: ${{ steps.parse-workflow-env.outputs.isRelease }}
   isNewest:
-    description: 'true if workflow is running against the newest release'
+    description: 'true if workflow is running the latest code'
     value: ${{ steps.parse-workflow-env.outputs.isNewest }}
 runs:
   using: "composite"
