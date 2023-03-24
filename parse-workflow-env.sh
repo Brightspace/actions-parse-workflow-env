@@ -6,7 +6,7 @@ IS_SCHEDULE='false'
 IS_PUSH='true'
 IS_TAGGED='false'
 IS_RELEASE='false'
-IS_NEWEST_RELEASE='false'
+IS_LATEST='false'
 
 if [[ $GITHUB_REF == *"/$MAIN_BRANCH" ]]; then
   IS_MAIN='true'
@@ -37,7 +37,7 @@ echo "isSchedule=$IS_SCHEDULE" >> $GITHUB_OUTPUT
 echo "isPush=$IS_PUSH" >> $GITHUB_OUTPUT
 echo "isTagged=$IS_TAGGED" >> $GITHUB_OUTPUT
 echo "isRelease=$IS_RELEASE" >> $GITHUB_OUTPUT
-echo "isNewest=$IS_NEWEST_RELEASE" >> $GITHUB_OUTPUT
+echo "isLatest=$IS_LATEST" >> $GITHUB_OUTPUT
 
 echo "Git Ref: '$GITHUB_REF'"
 echo "Event: '$GITHUB_EVENT_NAME'"
@@ -46,4 +46,4 @@ echo "Schedule: '$IS_SCHEDULE'"
 echo "Push: '$IS_PUSH'"
 echo "Tagged: '$IS_TAGGED'"
 echo "Release: '$IS_RELEASE'"
-echo "Newest Release: '$IS_NEWEST_RELEASE'"
+echo "Latest Code: '$IS_LATEST'"

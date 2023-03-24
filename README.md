@@ -58,7 +58,7 @@ jobs:
       isPush: ${{ steps.workflowEnv.outputs.isPush }}
       isTagged: ${{ steps.workflowEnv.outputs.isTagged }}
       isRelease: ${{ steps.workflowEnv.outputs.isRelease }}
-      isNewest: ${{ steps.workflowEnv.outputs.isNewest }}
+      isLatest: ${{ steps.workflowEnv.outputs.isLatest }}
     steps:
       - name: Setup Workflow Env
         id: workflowEnv

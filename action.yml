@@ -27,7 +27,7 @@ outputs:
     value: ${{ steps.parse-workflow-env.outputs.isRelease }}
   isNewest:
     description: 'true if workflow is running the latest code'
-    value: ${{ steps.parse-workflow-env.outputs.isNewest }}
+    value: ${{ steps.parse-workflow-env.outputs.isLatest }}
 runs:
   using: "composite"
   steps:
